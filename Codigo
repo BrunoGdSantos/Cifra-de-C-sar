@@ -1,22 +1,36 @@
 #include <stdio.h>
 #include <string.h>
 
-int main(){
+int main() {
 
-char palavra[20];
-int shift;
-int i;
+    char palavra[20];
+    int shift;
+    int i;
 
-printf("Digite uma palavra: ");
-scanf("%s", palavra);
+    int a = 1;
+    int b = 1;
+    int proximo;
 
-printf("Digite o valor do shift: ");
-scanf("%d", &shift);
+    printf("Digite uma palavra: ");
+    scanf("%s", palavra);
 
-for (i=0;i< strlen(palavra);i++){
-        palavra[i] = palavra[i] + shift;
-}
+    printf("Digite o SHIFT: ");
+    scanf("%d", &shift);
 
-printf("Palavra criptografa : %s\n", palavra);
+    for (i = 0; i < strlen(palavra); i++) {
 
+        int deslocamento;
+
+        deslocamento = shift + a;
+
+        palavra[i] = palavra[i] + deslocamento;
+
+        proximo = a + b;
+        a = b;
+        b = proximo;
+    }
+
+    printf("Palavra criptografada: %s\n", palavra);
+
+    return 0;
 }
