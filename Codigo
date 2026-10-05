@@ -3,7 +3,7 @@
 
 int main() {
 
-    char palavra[20];
+    char palavra[16];
     int shift;
     int i;
 
@@ -11,26 +11,66 @@ int main() {
     int b = 1;
     int proximo;
 
-    printf("Digite uma palavra: ");
-    scanf("%s", palavra);
+    FILE *arquivo;
+
+    printf("Digite uma palavra de ate 15 letras: ");
+    scanf("%15s", palavra);
+
+    if (strlen(palavra) > 15) {
+        printf("Erro: a palavra deve ter no maximo 15 letras.\n");
+        return 1;
+    }
 
     printf("Digite o SHIFT: ");
     scanf("%d", &shift);
 
     for (i = 0; i < strlen(palavra); i++) {
 
+        if (palavra[i] >= 'a' && palavra[i] <= 'z') {
+            palavra[i] = 'a' + (palavra[i] - 'a' + shift) % 26;
+        }
+
+        else if (palavra[i] >= 'A' && palavra[i] <= 'Z') {
+            palavra[i] = 'A' + (palavra[i] - 'A' + shift) % 26;
+        }
+    }
+
+    a = 1;
+    b = 1;
+
+    for (i = 0; i < strlen(palavra); i++) {
+
         int deslocamento;
 
-        deslocamento = shift + a;
+        deslocamento = a;
 
-        palavra[i] = palavra[i] + deslocamento;
+        if (palavra[i] >= 'a' && palavra[i] <= 'z') {
+            palavra[i] = 'a' + (palavra[i] - 'a' + deslocamento) % 26;
+        }
+
+        else if (palavra[i] >= 'A' && palavra[i] <= 'Z') {
+            palavra[i] = 'A' + (palavra[i] - 'A' + deslocamento) % 26;
+        }
 
         proximo = a + b;
         a = b;
         b = proximo;
     }
 
-    printf("Palavra criptografada: %s\n", palavra);
+    printf("Palavra codificada: %s | SHIFT: %d | Tipo: 3 | Letras: %d\n",
+           palavra, shift, strlen(palavra));
+
+    arquivo = fopen("resultado_criptografia.txt", "w");
+
+    if (arquivo == NULL) {
+        printf("Erro ao criar o arquivo.\n");
+        return 1;
+    }
+
+    fprintf(arquivo, "Palavra codificada: %s | SHIFT: %d | Tipo: 3 | Letras: %d\n",
+            palavra, shift, strlen(palavra));
+
+    fclose(arquivo);
 
     return 0;
 }
