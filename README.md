@@ -1,74 +1,72 @@
-Criptografia em C
+Atualização do Projeto de Criptografia - V2
 
-Esse é um programa simples de criptografia feito em linguagem C.
+Nesta segunda versão do projeto, realizamos uma atualização no programa de criptografia desenvolvido em C.
 
-A ideia é usar o método da Cifra de César, onde cada letra da palavra é deslocada de acordo com o valor de SHIFT escolhido pelo usuário.
+Na V1, o programa utilizava apenas o valor de SHIFT para fazer o deslocamento das letras.
 
-Como funciona
+Na V2, adicionamos a sequência de Fibonacci para deixar o deslocamento diferente em cada posição da palavra.
 
-Primeiro, o programa pede uma palavra:
+O que foi atualizado
 
-Digite uma palavra:
+A principal mudança foi a inclusão da sequência de Fibonacci no processo de criptografia.
 
-Depois, pede o valor do SHIFT:
+Na V1, o funcionamento era:
 
-Digite o valor do shift:
+SHIFT
 
-O SHIFT indica quantas posições cada letra será deslocada.
+Na V2, passou a ser:
 
-Por exemplo, se o SHIFT for 3:
+SHIFT + Fibonacci
 
-A → D
-B → E
-C → F
+A sequência utilizada começa com:
 
-Então, se eu digitar:
+1 1 2 3 5 8 13...
 
-CASA
+Dessa forma, cada letra recebe um deslocamento diferente.
 
-com SHIFT 3, o resultado será:
+Exemplo da atualização
 
-FDVD
-Como o código faz isso
+Considerando:
 
-O programa utiliza um for para passar por cada letra da palavra:
+Palavra: CASA
+SHIFT: 3
 
-for (i=0; i < strlen(palavra); i++){
-    palavra[i] = palavra[i] + shift;
-}
+Na V2, utilizamos:
 
-A variável i indica a posição da letra dentro da palavra.
+Fibonacci: 1 1 2 3
 
-A função strlen() verifica quantas letras a palavra possui.
+Os deslocamentos ficam:
 
-Depois, cada letra recebe o valor do SHIFT.
+C → 3 + 1 = 4
+A → 3 + 1 = 4
+S → 3 + 2 = 5
+A → 3 + 3 = 6
 
-Bibliotecas utilizadas
+Resultado:
 
-O programa utiliza duas bibliotecas:
+GEXG
+Alteração no código
 
-#include <stdio.h>
-#include <string.h>
+Foi adicionada a lógica responsável por gerar a sequência de Fibonacci:
 
-A stdio.h permite utilizar comandos como:
+int a = 1;
+int b = 1;
+int proximo;
 
-printf()
-scanf()
+Também adicionamos o cálculo do próximo número:
 
-A string.h permite utilizar a função:
+proximo = a + b;
+a = b;
+b = proximo;
 
-strlen()
+E o deslocamento passou a considerar a sequência:
 
-que serve para descobrir o tamanho da palavra.
+deslocamento = shift + a;
+Objetivo da V2
 
-Exemplo de execução
-Digite uma palavra: CASA
-Digite o valor do shift: 3
-Palavra criptografa : FDVD
-Tecnologias utilizadas
-Linguagem C
-Visual Studio Code
-GitHub
+A atualização foi feita para cumprir uma nova etapa da atividade, utilizando um conceito de matemática aplicada à programação.
+
+Com a utilização da Fibonacci, a criptografia deixou de usar somente um deslocamento fixo e passou a utilizar valores diferentes para cada letra.
 
 Autores
 
