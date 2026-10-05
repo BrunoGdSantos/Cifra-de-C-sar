@@ -70,7 +70,6 @@ Linguagem C
 Visual Studio Code
 GitHub
 
-
 Autores
 
 Bruno Gabriel dos Santos
