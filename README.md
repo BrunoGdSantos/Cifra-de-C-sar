@@ -1,99 +1,77 @@
-Projeto de Criptografia em C
+Criptografia em C
 
-Este projeto foi feito para uma atividade da disciplina de Algoritmo e Pensamento Computacional.
+Esse é um programa simples de criptografia feito em linguagem C.
 
-A ideia do projeto é criar um programa simples de criptografia usando a linguagem C. Para isso, utilizei a Cifra de César junto com a sequência de Fibonacci.
+A ideia é usar o método da Cifra de César, onde cada letra da palavra é deslocada de acordo com o valor de SHIFT escolhido pelo usuário.
 
 Como funciona
 
-O programa pede para o usuário digitar uma palavra e escolher um valor para o SHIFT.
+Primeiro, o programa pede uma palavra:
 
-O SHIFT é usado para deslocar as letras da palavra. Além disso, o programa utiliza a sequência de Fibonacci para aumentar ou diminuir o deslocamento de cada letra.
+Digite uma palavra:
 
-A conta utilizada pelo programa é:
+Depois, pede o valor do SHIFT:
 
-Deslocamento = SHIFT + número da sequência de Fibonacci
+Digite o valor do shift:
 
-A sequência de Fibonacci utilizada começa assim:
+O SHIFT indica quantas posições cada letra será deslocada.
 
-1 1 2 3 5 8 13...
-Exemplo
+Por exemplo, se o SHIFT for 3:
 
-Se eu digitar:
+A → D
+B → E
+C → F
 
-Palavra: CASA
-SHIFT: 3
+Então, se eu digitar:
 
-O programa vai utilizar:
+CASA
 
-1 1 2 3
+com SHIFT 3, o resultado será:
 
-Então o deslocamento de cada letra será:
+FDVD
+Como o código faz isso
 
-C → 3 + 1 = 4
-A → 3 + 1 = 4
-S → 3 + 2 = 5
-A → 3 + 3 = 6
+O programa utiliza um for para passar por cada letra da palavra:
 
-Com isso, a palavra é transformada e aparece na tela como resultado da criptografia.
+for (i=0; i < strlen(palavra); i++){
+    palavra[i] = palavra[i] + shift;
+}
 
-O que eu utilizei
+A variável i indica a posição da letra dentro da palavra.
 
-Para fazer o projeto, utilizei:
+A função strlen() verifica quantas letras a palavra possui.
 
-Linguagem C
-Visual Studio Code
-GitHub
+Depois, cada letra recebe o valor do SHIFT.
 
-Também utilizei as bibliotecas:
+Bibliotecas utilizadas
+
+O programa utiliza duas bibliotecas:
 
 #include <stdio.h>
 #include <string.h>
 
-A biblioteca stdio.h é utilizada para receber e mostrar informações na tela, através de scanf() e printf().
+A stdio.h permite utilizar comandos como:
 
-A biblioteca string.h foi utilizada para saber o tamanho da palavra através da função strlen().
+printf()
+scanf()
 
-Como o programa funciona no código
+A string.h permite utilizar a função:
 
-Primeiro, o programa cria uma variável para guardar a palavra:
+strlen()
 
-char palavra[20];
-
-Depois são criadas as variáveis para o SHIFT e para controlar o for:
-
-int shift;
-int i;
-
-Também são criadas as variáveis utilizadas para gerar a sequência de Fibonacci:
-
-int a = 1;
-int b = 1;
-int proximo;
-
-O programa então pede a palavra e o SHIFT:
-
-printf("Digite uma palavra: ");
-scanf("%s", palavra);
-
-printf("Digite o SHIFT: ");
-scanf("%d", &shift);
-
-Depois, o for passa por cada letra da palavra e aplica o deslocamento:
-
-deslocamento = shift + a;
-
-palavra[i] = palavra[i] + deslocamento;
-
-Ao mesmo tempo, o programa calcula o próximo número da sequência de Fibonacci.
-
-No final, a palavra criptografada é mostrada na tela.
+que serve para descobrir o tamanho da palavra.
 
 Exemplo de execução
 Digite uma palavra: CASA
-Digite o SHIFT: 3
-Palavra criptografada: GEXG
-Autor
+Digite o valor do shift: 3
+Palavra criptografa : FDVD
+Tecnologias utilizadas
+Linguagem C
+Visual Studio Code
+GitHub
+
+
+Autores
 
 Bruno Gabriel dos Santos
 Alex Sander de Jesus Carvalho
