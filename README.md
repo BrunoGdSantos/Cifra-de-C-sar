@@ -1,78 +1,113 @@
-Atualização do Projeto de Criptografia - V2
+Criptografia Matemática em C
 
-Nesta segunda versão do projeto, realizamos uma atualização no programa de criptografia desenvolvido em C.
+Descrição
 
-Na V1, o programa utilizava apenas o valor de SHIFT para fazer o deslocamento das letras.
+Este projeto foi desenvolvido em linguagem C para a disciplina de Algoritmo e Pensamento Computacional. O sistema combina conceitos de criptografia e sequências matemáticas para realizar a codificação de palavras.
 
-Na V2, adicionamos a sequência de Fibonacci para deixar o deslocamento diferente em cada posição da palavra.
+O programa utiliza o método de deslocamento baseado em SHIFT, combinado com uma sequência matemática escolhida pelo usuário. O objetivo é aplicar conceitos de programação, raciocínio lógico e matemática em uma aplicação prática.
 
-O que foi atualizado
+Funcionalidades
 
-A principal mudança foi a inclusão da sequência de Fibonacci no processo de criptografia.
+Criptografia de palavras com até 15 letras.
 
-Na V1, o funcionamento era:
+Validação da entrada, permitindo somente letras sem acentos.
 
-SHIFT
+Definição de um valor de SHIFT pelo usuário.
 
-Na V2, passou a ser:
+Seleção da sequência matemática utilizada na criptografia.
 
-SHIFT + Fibonacci
+Implementação das seguintes sequências:
 
-A sequência utilizada começa com:
+Progressão Aritmética (PA);
 
-1 1 2 3 5 8 13...
+Progressão Geométrica (PG);
 
-Dessa forma, cada letra recebe um deslocamento diferente.
+Fibonacci;
 
-Exemplo da atualização
+Números Primos.
 
-Considerando:
+Exibição dos valores da sequência utilizados durante a execução.
 
-Palavra: CASA
-SHIFT: 3
+Geração do arquivo resultado_criptografia.txt.
 
-Na V2, utilizamos:
+Registro das execuções no arquivo log_criptografia.txt.
 
-Fibonacci: 1 1 2 3
+Menu interativo para utilização do sistema.
 
-Os deslocamentos ficam:
+Funcionamento
 
-C → 3 + 1 = 4
-A → 3 + 1 = 4
-S → 3 + 2 = 5
-A → 3 + 3 = 6
+Para cada caractere da palavra, o programa calcula o deslocamento utilizando o valor do SHIFT e o valor correspondente da sequência escolhida.
 
-Resultado:
+Deslocamento = SHIFT + valor da sequência
 
-GEXG
-Alteração no código
+A partir desse valor, cada letra é deslocada dentro do alfabeto, gerando a palavra codificada.
 
-Foi adicionada a lógica responsável por gerar a sequência de Fibonacci:
+Sequências disponíveis
 
-int a = 1;
-int b = 1;
-int proximo;
+Progressão Aritmética (PA)
 
-Também adicionamos o cálculo do próximo número:
+1, 3, 5, 7, 9, ...
 
-proximo = a + b;
-a = b;
-b = proximo;
+Progressão Geométrica (PG)
 
-E o deslocamento passou a considerar a sequência:
+1, 2, 4, 8, 16, ...
 
-deslocamento = shift + a;
-Objetivo da V2
+Fibonacci
 
-A atualização foi feita para cumprir uma nova etapa da atividade, utilizando um conceito de matemática aplicada à programação.
+1, 1, 2, 3, 5, 8, 13, ...
 
-Com a utilização da Fibonacci, a criptografia deixou de usar somente um deslocamento fixo e passou a utilizar valores diferentes para cada letra.
+Números Primos
+
+2, 3, 5, 7, 11, 13, ...
+
+Arquivos gerados
+
+resultado_criptografia.txt
+
+Armazena as informações referentes à execução da criptografia, incluindo:
+
+Palavra original;
+
+Palavra codificada;
+
+Valor do SHIFT;
+
+Tipo de sequência utilizada;
+
+Quantidade de letras.
+
+log_criptografia.txt
+
+Registra as execuções realizadas pelo programa, permitindo manter um histórico das criptografias realizadas.
+
+Tecnologias
+
+Linguagem C
+
+Biblioteca stdio.h
+
+Biblioteca string.h
+
+Biblioteca ctype.h
+
+Manipulação de arquivos
+
+Funções
+
+Estruturas condicionais
+
+Estruturas de repetição
+
+Objetivo
+
+O projeto tem como objetivo desenvolver e aplicar conhecimentos de algoritmos, programação estruturada, criptografia básica e sequências matemáticas, relacionando conceitos teóricos com uma implementação prática em linguagem C.
 
 Autores
 
+João Victor Martines
 Bruno Gabriel dos Santos
 Alex Sander de Jesus Carvalho
 Isaac Ben Fernandes dos Santos
 Guilherme Silva Alves
 
-Projeto desenvolvido para fins acadêmicos.
+Projeto desenvolvido para fins academicos.
